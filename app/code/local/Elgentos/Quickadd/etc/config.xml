@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Elgentos_Quickadd>
+            <version>1.0.2</version>
+        </Elgentos_Quickadd>
+    </modules>
+
+    <global>
+        <blocks>
+            <quickadd>
+                <class>Elgentos_Quickadd_Block</class>
+            </quickadd>
+        </blocks>
+        <models>
+            <elgentoslquickadd>
+                <class>Elgentos_Quickadd_Model</class>
+            </elgentoslquickadd>
+        </models>
+        <events>
+            <catalog_product_save_before>
+                <observers>
+                    <product_save_observer>
+                        <type>singleton</type>
+                        <class>Elgentos_Quickadd_Model_Observer</class>
+                        <method>makeDeeplink</method>
+                    </product_save_observer>
+                </observers>
+            </catalog_product_save_before>
+        </events>
+        <resources>
+            <elgentoslquickadd_setup>
+                <setup>
+                    <module>Elgentos_Quickadd</module>
+                    <class>Elgentos_Quickadd_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </elgentoslquickadd_setup>
+
+            <elgentoslquickadd_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </elgentoslquickadd_write>
+            <elgentoslquickadd_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </elgentoslquickadd_read>
+        </resources>
+    </global>
+
+    <frontend>
+        <routers>
+            <quickadd>
+                <use>standard</use>
+                <args>
+                    <module>Elgentos_Quickadd</module>
+                    <frontName>quickadd</frontName>
+                </args>
+            </quickadd>
+        </routers>
+        <events>
+            <cms_page_render>
+                <observers>
+                    <quickadd>
+                        <type>singleton</type>
+                        <class>Elgentos_Quickadd_Model_Header</class>
+                        <method>add</method>
+                    </quickadd>
+                </observers>
+            </cms_page_render>
+        </events>
+    </frontend>
+
+    <default>
+        <quickadd>
+            <general>
+                <urlprefix>quickadd</urlprefix>
+                <enabled>1</enabled>
+                <redirect>checkout/cart</redirect>
+                <defaultqty>1</defaultqty>
+                <message>Product :product: has been succesfully added to the
+                    shopping cart.</message>
+                <errormessage>Product :product: has not been added to the shopping
+                    cart.</errormessage>
+            </general>
+        </quickadd>
+    </default>
+</config>

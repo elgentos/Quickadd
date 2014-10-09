@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<config>
+  <sections>
+    <quickadd translate="label">
+      <label>Quickadd</label>
+      <tab>catalog</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>1000</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <!-- New groups go here -->
+        <general translate="label">
+          <label>General</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>100</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <expanded>1</expanded>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enabled translate="label comment">
+              <label>Enabled</label>
+              <!--<comment>
+                <![CDATA[This text appears just beneath the field with a small arrow.
+                <span class="notice">It can contain HTML formatting too!</span>]]>
+              </comment>-->
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+            <urlprefix translate="label comment">
+              <label>URL prefix</label>
+              <comment>
+                <![CDATA[Choose the URL prefix; i.e. http://yourstore.com/<strong>quickadd</strong>/product-name.]]>
+              </comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </urlprefix>
+            <message>
+                <label>Message</label>
+                <comment>
+                    <![CDATA[Message to be shown after adding the product.<br />Use <strong>:product:</strong> as a placeholder for the name of the product.]]>
+                </comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>25</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </message>
+            <errormessage>
+                <label>Error message</label>
+                <comment>
+                    <![CDATA[Message to be shown after adding the product has failed.<br />Use <strong>:product:</strong> as a placeholder for the name of the product.]]>
+                </comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>26</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </errormessage>
+            <redirect>
+                <label>Redirect to</label>
+                <comment>
+                    <![CDATA[Choose where you want to send the user after adding the product to the cart. <br />Example options:<br /><strong>checkout/cart</strong> - to the shopping cart (default)<br /><strong>:product:</strong> - to the product page<br /><strong>:home:</strong> - the home page]]>
+                </comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>30</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </redirect>
+            <defaultqty>
+                <label>Default quantity</label>
+                <comment>
+                    <![CDATA[Default quantity of the product to add to the shopping cart]]>
+                </comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>40</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </defaultqty>
+          </fields>
+        </general>
+        <about translate="label">
+              <label>Developer</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>900</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <fields>
+                  <info translate="label">
+                      <frontend_model>quickadd/about</frontend_model>
+                      <sort_order>1</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </info>
+              </fields>
+          </about>
+      </groups>
+    </quickadd>
+  </sections>
+</config>
